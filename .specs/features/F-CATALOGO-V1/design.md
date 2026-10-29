@@ -4,7 +4,7 @@ kind: design
 title: Design — F-CATALOGO-V1
 parent: F-CATALOGO-V1
 version: 0.2.0
-status: in_review
+status: approved
 applicable: true
 last_updated: 2026-10-28
 ---

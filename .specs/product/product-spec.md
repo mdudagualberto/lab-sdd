@@ -3,17 +3,18 @@ id: PROD-001
 kind: product_spec
 title: Catálogo local de artigos do grupo de estudos
 parent: CONST-001
-version: 0.1.1
-status: in_review
+version: 0.1.2
+status: approved
 bootstrap: complete
 risk_tier: minimal
 owners: [mdudagualberto]
-last_updated: 2026-10-28
+last_updated: 2026-10-29
 spec_hash: pending
 status_history:
   - { version: 0.0.1, status: draft, date: 2026-09-05, note: "esqueleto; preenchido no Playbook Bootstrap a partir do case" }
   - { version: 0.1.0, status: draft, date: 2026-10-28, note: "proposta de bootstrap a partir do pedido da mantenedora e da seção 4 do guia pós-aula; aguarda G0 (bootstrap segue pending até o aceite)" }
   - { version: 0.1.1, status: in_review, date: 2026-10-28, note: "G0 sobre a versão 0.1.0: aceite da mantenedora em 2026-10-28 nesta conversa ("Revisei e aceito o produto, a stack e os contratos nestas versões"); não é aprovação final da entrega; bootstrap: complete; §5 atualizada para ADR-002 aceita" }
+  - { version: 0.1.2, status: approved, date: 2026-10-29, note: "aceite final da mantenedora em 2026-10-29 nesta conversa ("registre o aceite final nas specs do produto"), depois de make check, make e2e, CI verde em 227ea63 (run 40811044546), revisão independente e revisão visual; primeira entrega (F-SETUP-V1 e F-CATALOGO-V1) aprovada" }
 ---
 
 # PROD-001 — Catálogo local de artigos do grupo de estudos

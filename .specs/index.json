@@ -40,31 +40,31 @@
       "id": "DESIGN-F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/design.md",
       "kind": "design",
-      "status": "in_review"
+      "status": "approved"
     },
     {
       "id": "PLAN-F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/plan.md",
       "kind": "plan",
-      "status": "in_review"
+      "status": "approved"
     },
     {
       "id": "RISK-F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/risks.md",
       "kind": "risks",
-      "status": "in_review"
+      "status": "approved"
     },
     {
       "id": "F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/spec.md",
       "kind": "feature_spec",
-      "status": "in_review"
+      "status": "approved"
     },
     {
       "id": "TASKS-F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/tasks.md",
       "kind": "tasks",
-      "status": "in_review"
+      "status": "approved"
     },
     {
       "id": "PLAN-F-SDD-TOOLING-V1",
@@ -124,7 +124,7 @@
       "id": "PROD-001",
       "path": ".specs/product/product-spec.md",
       "kind": "product_spec",
-      "status": "in_review"
+      "status": "approved"
     }
   ],
   "hashes": {
@@ -134,11 +134,11 @@
     "DS-00-arquitetura": "048ad91cadf7c5cf453d30f52f8cc920234d810020dccbe9c169c5f171d88f0c",
     "DS-06-testes": "ea3bbc470a62196b88ed7df2ef54032002e18c48c7284132ca109b8c1b13b4e6",
     "DS-07-nomes": "6610ae8a67443ca564fd766ff8b9ad9077ef70b091ffdbd8d80b3da0ed8f9db8",
-    "DESIGN-F-CATALOGO-V1": "8adf6dede325054595c11b258b3dcde2334edf8184847d4734710f8caa046cdf",
-    "PLAN-F-CATALOGO-V1": "e6006e37b75466eed4808aa25e514dfd78d562ba81e97a9d66f8eac2b82770b4",
-    "RISK-F-CATALOGO-V1": "93ed7207bf7340bcffea213938ccac04344eb4ce9d2a9fa1ba854882da29081f",
-    "F-CATALOGO-V1": "3913825c08cfa0aa2d44e1f920ab56515df12f4f14c66d4c6fda54299e378ea8",
-    "TASKS-F-CATALOGO-V1": "324dd20bab217f020625f1adbaece326395589564da9ba4db9dbcbd634e5c2e2",
+    "DESIGN-F-CATALOGO-V1": "1b2be84faa863cb584817c8c110c01c40f20f0f5d256ef2ac2719f2ddf122656",
+    "PLAN-F-CATALOGO-V1": "c3046a055424ad1c7e235afedaf894a0e70fbb0e3e544b1221d217ff74a15edc",
+    "RISK-F-CATALOGO-V1": "4b4309be0fd6acc8282bd7f2b506c244cce93b090ac232d0eba66a1182641d36",
+    "F-CATALOGO-V1": "e5c9d314b84b3cbbd18992269e5a6c093da6dabe2e503549864fa4ba2320dd52",
+    "TASKS-F-CATALOGO-V1": "58dd9b8be5b52ff179aaf4de531a3554d0467fe82c743b1651092de8b350e157",
     "PLAN-F-SDD-TOOLING-V1": "9e18b952591bb058fac8a361ec5aa902cdc2492761c52e3f07e113e5f699540d",
     "RISK-F-SDD-TOOLING-V1": "b7ad3041d6656ddbf2c1347bf335b1e323eee2365fd43e9cff76f63a814c2ac9",
     "F-SDD-TOOLING-V1": "6e26468118abcb5aed45236cfee4057c9594daf0067df2a080f7848879c665c1",
@@ -148,6 +148,6 @@
     "RISK-F-SETUP-V1": "41ad1fa9181d210d16063f32622c38a6149328f64adddc0ca75062ac661a74d8",
     "F-SETUP-V1": "7247d95cd332c7624c102cd534443d3432a6f8b35b062204327b0d47226eefd0",
     "TASKS-F-SETUP-V1": "5ddc7606810db6e91820627fe7a5f73ba69eef0ab4db12a1f4eb388cd92a54aa",
-    "PROD-001": "32ccd6608612b4dceae45eef6cf6f38fae0e39168ebd1227a7abb10efc6d6eb7"
+    "PROD-001": "ea0310cdb3c023b54b45ed7f36ea2dc03b62bb5e80885aa3698468b5f112d6e4"
   }
 }

@@ -3,8 +3,8 @@ id: F-CATALOGO-V1
 kind: feature_spec
 title: Catálogo de artigos com filtro por ano, contador, lista vazia e erro de entrada
 parent: PROD-001
-version: 0.1.2
-status: in_review
+version: 0.1.3
+status: approved
 risk_tier: minimal
 data_classification: public
 slo: {}
@@ -12,13 +12,14 @@ issue: none
 owners: [mdudagualberto]
 deps: [F-SETUP-V1]
 related_adrs: [ADR-002]
-last_updated: 2026-10-28
+last_updated: 2026-10-29
 spec_hash: pending
 status_history:
   - { version: 0.1.0, status: draft, date: 2026-10-28, note: "proposta a partir dos critérios AC-1..AC-5 da seção 4 do guia pós-aula, com decisões de comportamento registradas; aguarda G1 da mantenedora" }
   - { version: 0.1.1, status: draft, date: 2026-10-28, note: "NEEDS_CLARIFICATION: lápide da Q-1 (Playwright aceito pela mantenedora; AC-8 mantida, verificada por make e2e); sem mudança de AC; gates ainda não aceitos" }
   - { version: 0.1.1, status: in_review, date: 2026-10-28, note: "G1 sobre a versão 0.1.1: aceite da mantenedora em 2026-10-28 nesta conversa ("Revisei e aceito o produto, a stack e os contratos nestas versões"); não é aprovação final da entrega; implementação local autorizada" }
   - { version: 0.1.2, status: in_review, date: 2026-10-28, note: "D-4 registra que o ano é sempre exibido com quatro dígitos (0999, 0000). O código e o teste já existiam desde 49a4403, após achado da revisão independente; a spec não dizia como o ano é exibido (spec gap (a) do PM-catalogo-bootstrap-2026-10-28). Pedido da mantenedora; sem AC nova; não é aprovação final" }
+  - { version: 0.1.3, status: approved, date: 2026-10-29, note: "aceite final da mantenedora em 2026-10-29 nesta conversa ("registre o aceite final nas specs do produto"), depois de make check, make e2e, CI verde em 227ea63 (run 40811044546), revisão independente e revisão visual. Lápide Q-1 movida para Clarificações resolvidas (R4), sem mudança de AC. T-009 (leitor de tela) segue deferred, com a mantenedora como dona" }
 ---
 
 # F-CATALOGO-V1 — Catálogo com filtro por ano
@@ -92,4 +93,8 @@ Resumo em risks.md: dígitos Unicode aceitos por `\d`/`isdigit`, `aplicado` adul
 Herdados da Constitution §3. Erro de entrada tem um único texto documentado (AC-5). A suíte de AC-1..AC-7 é hermética (cliente do Flask, fixture `tests/fixtures/artigos.json`). AC-8 roda em `make e2e`, fora do `make check` (ADR-002). Overrides: nenhum.
 
 ## NEEDS_CLARIFICATION
-- nenhum. ~~Q-1~~ (lápide, 2026-10-28): Playwright aceito pela mantenedora; AC-8 mantida, verificada por `make e2e` antes da entrega.
+- nenhum
+
+## Clarificações resolvidas
+Histórico preservado (lápides), fora da seção NEEDS_CLARIFICATION a partir da v0.1.3.
+- ~~Q-1~~ (lápide, 2026-10-28): Playwright aceito pela mantenedora; AC-8 mantida, verificada por `make e2e` antes da entrega.

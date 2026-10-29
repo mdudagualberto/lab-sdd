@@ -4,7 +4,7 @@ kind: risks
 title: Riscos — F-CATALOGO-V1
 parent: F-CATALOGO-V1
 version: 0.1.0
-status: in_review
+status: approved
 last_updated: 2026-10-28
 ---
 
