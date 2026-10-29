@@ -3,8 +3,8 @@ id: F-SETUP-V1
 kind: feature_spec
 title: Esqueleto Python/Flask do catálogo com dados fictícios, testes, lint e CI
 parent: PROD-001
-version: 0.2.0
-status: in_review
+version: 0.2.1
+status: approved
 risk_tier: minimal
 data_classification: public
 slo: {}
@@ -12,13 +12,14 @@ issue: none
 owners: [mdudagualberto]
 deps: []
 related_adrs: [ADR-002]
-last_updated: 2026-10-28
+last_updated: 2026-10-29
 spec_hash: pending
 status_history:
   - { version: 0.1.0, status: draft, date: 2026-10-28, note: "proposta do bootstrap; depende do G2 da ADR-002; aguarda G1 da mantenedora" }
   - { version: 0.1.1, status: draft, date: 2026-10-28, note: "Q-1 e Q-2 respondidas pela mantenedora; Q-3 aberta; gates ainda não aceitos" }
   - { version: 0.2.0, status: draft, date: 2026-10-28, note: "AC-2: ano só como string de quatro dígitos ASCII, convertida para int depois da validação (antes também aceitava inteiro 1000–9999, o que era inconsistente); resumo de Risks alinhado ao risks.md; Q-3 resolvida pela mantenedora (opção a); gates ainda não aceitos" }
   - { version: 0.2.0, status: in_review, date: 2026-10-28, note: "G1 sobre a versão 0.2.0: aceite da mantenedora em 2026-10-28 nesta conversa ("Revisei e aceito o produto, a stack e os contratos nestas versões"); não é aprovação final da entrega; implementação local autorizada" }
+  - { version: 0.2.1, status: approved, date: 2026-10-29, note: "aceite final da mantenedora em 2026-10-29 nesta conversa ("registre o aceite final nas specs do produto"), depois de make check, make e2e, CI verde em 227ea63 (run 40811044546), revisão independente e revisão visual. Lápides Q-1..Q-3 movidas para Clarificações resolvidas (R4), sem mudança de AC" }
 ---
 
 # F-SETUP-V1 — Esqueleto do produto
@@ -68,6 +69,10 @@ Resumo em risks.md: recursão no teste de `make check` (R-1), ambiente sem `.ven
 Herdados da Constitution §3. Suíte padrão hermética (sem rede; `make app-setup` e `make e2e-setup` são os únicos comandos que acessam a rede). Overrides: nenhum.
 
 ## NEEDS_CLARIFICATION
+- nenhum
+
+## Clarificações resolvidas
+Histórico preservado (lápides), fora da seção NEEDS_CLARIFICATION a partir da v0.2.1.
 - ~~Q-2~~ (resolvida em 2026-10-28; lápide). A mantenedora autorizou revisar F-SDD-TOOLING-V1 AC-8 (v0.2.0): pending exige “Produto a definir”, complete proíbe, e os dois casos são testados. Consequência: enquanto PROD-001 estiver em `bootstrap: pending` com o texto da proposta, `make check` falha nesse teste até o G0 (ver Q-3). Texto original: (bloqueia `make check` verde): o teste do tooling `test_bootstrap_and_templates_are_product_independent` (F-SDD-TOOLING-V1 AC-8, `scripts/tests/test_hooks.py:132`) exige que PROD-001 contenha “Produto a definir” e que a Constitution contenha “a definir no bootstrap”. Desde a proposta de PROD-001 (2026-10-28), `make check` falha nesse teste. É um invariante do repositório-template, não do produto. Proposta: revisar F-SDD-TOOLING-V1 AC-8 para exigir isso só enquanto `bootstrap: pending` e checar apenas os `_TEMPLATE`. Isso mexe em enforcement e precisa de autorização explícita. Alternativa: manter a falha registrada como conhecida até decidir. Nunca silenciar o teste.
 - ~~Q-3~~ (resolvida em 2026-10-28; lápide): a mantenedora escolheu a opção (a). `make check` fica vermelho em `test_bootstrap_and_templates_are_product_independent` até o G0, como falha conhecida, sem texto acrescentado ao PROD-001. A asserção da Constitution entrou na mesma revisão da AC-8 do tooling (v0.3.0), restrita à §2. Texto original: no intervalo entre a proposta e o G0, PROD-001 em `pending` sem “Produto a definir” deixa `make check` vermelho. Opções: (a) aceitar o vermelho conhecido até o G0, quando `bootstrap: complete` resolve; (b) acrescentar ao PROD-001 uma linha verdadeira como “Produto a definir: esta é uma proposta aguardando G0” e removê-la no G0. Também falta decidir: o mesmo teste exige que a Constitution contenha “a definir no bootstrap”, o que vai falhar quando a §2 for preenchida após o G2 (mesma família da Q-2, fora da autorização atual).
 - ~~Q-1~~ (resolvida em 2026-10-28; lápide): a mantenedora aceitou Playwright + Chromium em `make e2e`, fora da CI nesta fase; AC-8 da F-CATALOGO-V1 mantida. Texto original: (muda o desenho dos testes de teclado): aceitar Playwright + Chromium (~150 MB, comando separado e fora da CI) para verificar teclado/foco e gerar capturas? Proposta: sim. Plano B: verificação manual roteirizada, registrada no design.md, sem AC-8 automatizada na F-CATALOGO-V1.

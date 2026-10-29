@@ -4,7 +4,7 @@ kind: design
 title: Design — F-SETUP-V1
 parent: F-SETUP-V1
 version: 0.1.0
-status: in_review
+status: approved
 applicable: false
 last_updated: 2026-10-28
 ---
