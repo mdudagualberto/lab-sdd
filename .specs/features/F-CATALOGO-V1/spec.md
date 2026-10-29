@@ -3,7 +3,7 @@ id: F-CATALOGO-V1
 kind: feature_spec
 title: Catálogo de artigos com filtro por ano, contador, lista vazia e erro de entrada
 parent: PROD-001
-version: 0.1.1
+version: 0.1.2
 status: in_review
 risk_tier: minimal
 data_classification: public
@@ -18,6 +18,7 @@ status_history:
   - { version: 0.1.0, status: draft, date: 2026-10-28, note: "proposta a partir dos critérios AC-1..AC-5 da seção 4 do guia pós-aula, com decisões de comportamento registradas; aguarda G1 da mantenedora" }
   - { version: 0.1.1, status: draft, date: 2026-10-28, note: "NEEDS_CLARIFICATION: lápide da Q-1 (Playwright aceito pela mantenedora; AC-8 mantida, verificada por make e2e); sem mudança de AC; gates ainda não aceitos" }
   - { version: 0.1.1, status: in_review, date: 2026-10-28, note: "G1 sobre a versão 0.1.1: aceite da mantenedora em 2026-10-28 nesta conversa ("Revisei e aceito o produto, a stack e os contratos nestas versões"); não é aprovação final da entrega; implementação local autorizada" }
+  - { version: 0.1.2, status: in_review, date: 2026-10-28, note: "D-4 registra que o ano é sempre exibido com quatro dígitos (0999, 0000). O código e o teste já existiam desde 49a4403, após achado da revisão independente; a spec não dizia como o ano é exibido (spec gap (a) do PM-catalogo-bootstrap-2026-10-28). Pedido da mantenedora; sem AC nova; não é aprovação final" }
 ---
 
 # F-CATALOGO-V1 — Catálogo com filtro por ano
@@ -51,7 +52,7 @@ contador, lista ou "Nenhum artigo encontrado", mensagem de erro quando houver
 | D-1 | Estado inicial (`GET /` sem parâmetros): todos os artigos, sem erro, campo vazio | proposta; consistente com AC-3 do guia |
 | D-2 | Ordem da lista: a mesma do arquivo de dados, sem reordenar (vale para todos os estados) | proposta; Regra 4 (menor solução) |
 | D-3 | Entrada normalizada com `str.strip()` do Python (espaços, tabulação e quebras de linha nas pontas). Vazia após strip = “sem filtro” (AC-3), não é erro | guia AC-5 + proposta |
-| D-4 | Ano válido = exatamente quatro caracteres de `0` a `9` (ASCII), sem faixa mínima ou máxima: `0000` e `9999` são válidos e caem em lista vazia | guia AC-5; sem faixa por Regra 4 |
+| D-4 | Ano válido = exatamente quatro caracteres de `0` a `9` (ASCII), sem faixa mínima ou máxima: `0000` e `9999` são válidos e caem em lista vazia. O ano de cada artigo é sempre exibido com quatro dígitos, com zeros à esquerda (`0999`, não `999`), coberto por `tests/catalogo/test_filtro_ano.py::test_ac1_ano_exibido_mantem_quatro_digitos` | guia AC-5; sem faixa por Regra 4; exibição: revisão 0.1.2 |
 | D-5 | Dígitos não ASCII (`２０２４`, `٢٠٢٤`), sinais (`+2024`), espaços internos (`20 24`) e decimais (`2024.0`) são entrada inválida | consequência de D-4 |
 | D-6 | “Resultado anterior” na AC-5 = resultado do último filtro válido aplicado, carregado no campo `aplicado`. Se `aplicado` estiver ausente ou inválido (URL editada à mão), vale “todos” | proposta; resolve como o servidor sem estado preserva a tela |
 | D-7 | Com erro, o campo mantém o texto digitado (para correção), recebe foco ao carregar a página e é marcado como inválido | proposta; guia pede definir como o erro aparece |

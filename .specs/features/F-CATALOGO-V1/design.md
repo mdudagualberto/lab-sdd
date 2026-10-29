@@ -14,7 +14,7 @@ last_updated: 2026-10-28
 Contrato de implementação visual; não substitui a spec. Se não houver UI, use `applicable: false` e justifique em Referências; mantenha as demais seções com “não se aplica”.
 
 ## Referências
-- Spec e versão: `.specs/features/F-CATALOGO-V1/spec.md` v0.1.1.
+- Spec e versão: `.specs/features/F-CATALOGO-V1/spec.md` v0.1.2.
 - Referência visual: wireframe W-1 abaixo, versionado neste arquivo (v0.1.0). Não há Figma; o wireframe decide a disposição e o CSS mínimo decide o resto.
 - Superfícies e variantes: navegador desktop (1280×800) e largura de celular (375×800); tema claro; pt-BR. Tema escuro e outros idiomas: não aplicáveis na V1 (PROD-001 P-3).
 - Componentes existentes e implementação: `catalogo/templates/catalogo.html` (formulário, ajuda, erro, contador, lista, vazio) e `catalogo/static/estilo.css`.

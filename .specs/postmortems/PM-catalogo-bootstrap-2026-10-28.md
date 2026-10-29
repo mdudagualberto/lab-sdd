@@ -102,7 +102,7 @@ Não atualizei `docs/learned-practices.md`. A única prática reutilizável fora
 |---|---|---|---|---|---|
 | Resultado real da CI (jobs `check` e `product`), que depende de push | process | mdudagualberto | antes do aceite final | F-SETUP-V1 T-007 | aberto |
 | Revisão humana do código e aceite final (`approved`) das specs | process | mdudagualberto | antes da entrega ao grupo | F-SETUP-V1 / F-CATALOGO-V1 status_history | aberto |
-| Escrever na spec que o ano é exibido com quatro dígitos (D-4/AC-1), numa revisão 0.1.2 | prevent | mdudagualberto (decide) | próxima rodada (intervalo de anos) | este PM §5 (a) | aberto |
+| Escrever na spec que o ano é exibido com quatro dígitos (D-4/AC-1), numa revisão 0.1.2 | prevent | mdudagualberto (decide) | próxima rodada (intervalo de anos) | este PM §5 (a); F-CATALOGO-V1 v0.1.2 | feito em 2026-10-28 |
 | Verificação com leitor de tela real | mitigate | mdudagualberto | sem prazo; fora da V1 | F-CATALOGO-V1 T-009 | deferred |
 | Levar `make e2e` para a CI | prevent | mdudagualberto | quando o custo do Chromium na CI for aceito | F-CATALOGO-V1 risks R-5 | aberto |
 | Decidir o caso do `ano` repetido na URL e o texto da D-3 | process | mdudagualberto | opcional | este PM §5 (c) | aberto |
