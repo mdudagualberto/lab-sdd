@@ -132,10 +132,8 @@ class Hooks(RepoCase):
     def test_bootstrap_and_templates_are_product_independent(self):
         """AC-8: product/stack open, private paths and origin design not distributed."""
         product = (SOURCE / '.specs/product/product-spec.md').read_text()
-        self.assertIn('bootstrap: pending', product)
-        self.assertIn('Produto a definir', product)
         constitution = (SOURCE / '.specs/constitution/constitution.md').read_text()
-        self.assertIn('a definir no bootstrap', constitution)
+        self.assertIsNone(bootstrap_problem(product, constitution))
         for folder in (SOURCE / '.claude', SOURCE / '.specs/features/_TEMPLATE', SOURCE / '.specs/components/_TEMPLATE'):
             for path in folder.rglob('*'):
                 if path.is_file() and path.suffix in ('.md', '.json', '.sh', '.py'):
@@ -143,3 +141,44 @@ class Hooks(RepoCase):
                     self.assertNotIn('/Users/', content, str(path))
                     self.assertNotIn('SPECTROLITE_', content, str(path))
                     self.assertNotIn('figma.com/design/', content, str(path))
+
+    def test_bootstrap_placeholder_follows_bootstrap_state(self):
+        """AC-8: pending keeps both placeholders, complete drops both, any other state fails."""
+        product = '---\nid: PROD-001\nbootstrap: {}\n---\n\n# PROD-001 — {}\n'
+        constitution = ('---\nstatus_history:\n  - {{ note: "stack a definir no bootstrap" }}\n---\n'
+                        '## §1 Princípios\n## §2 Stack canônica\n| Framework | {} |\n## §3 NFRs\n')
+        open_product, done_product = 'Produto a definir no bootstrap', 'Catálogo'
+        open_stack, done_stack = constitution.format('a definir no bootstrap'), constitution.format('Flask')
+        def problem(state, title, stack):
+            return bootstrap_problem(product.format(state, title), stack) or ''
+        self.assertEqual(problem('pending', open_product, open_stack), '')
+        # History outside §2 keeps the old wording after the bootstrap; only §2 is checked.
+        self.assertEqual(problem('complete', done_product, done_stack), '')
+        self.assertIn('PROD-001', problem('pending', done_product, open_stack))
+        self.assertIn('§2', problem('pending', open_product, done_stack))
+        self.assertIn('PROD-001', problem('complete', open_product, done_stack))
+        self.assertIn('§2', problem('complete', done_product, open_stack))
+        self.assertIn('§2', problem('complete', done_product, '## §1 sem tabela de stack\n'))
+        for state in ('done', 'Pending', ''):
+            for title, stack in ((open_product, open_stack), (done_product, done_stack)):
+                self.assertIn('bootstrap inválido', problem(state, title, stack), state)
+        self.assertIn('bootstrap inválido', bootstrap_problem('# PROD-001 sem frontmatter\nProduto a definir\n', open_stack) or '')
+
+
+def bootstrap_problem(product, constitution):
+    """AC-8 invariant for PROD-001 and Constitution §2; returns None when both match the bootstrap state."""
+    head = re.match(r'---\n(.*?)\n---\n', product, re.S)
+    state = re.search(r'^bootstrap: *(\S*) *$', head.group(1), re.M) if head else None
+    state = state.group(1) if state else None
+    if state not in ('pending', 'complete'):
+        return f'bootstrap inválido em PROD-001: {state!r} (esperado pending ou complete)'
+    stack = re.search(r'^## §2 .*?(?=^## |\Z)', constitution, re.M | re.S)
+    if not stack:
+        return 'Constitution sem seção §2'
+    pending = state == 'pending'
+    problems = []
+    if ('Produto a definir' in product) != pending:
+        problems.append(f'bootstrap: {state} ' + ('exige' if pending else 'proíbe') + ' “Produto a definir” em PROD-001')
+    if ('a definir no bootstrap' in stack.group(0)) != pending:
+        problems.append(f'bootstrap: {state} ' + ('exige' if pending else 'proíbe') + ' “a definir no bootstrap” na §2 da Constitution')
+    return '; '.join(problems) or None

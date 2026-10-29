@@ -3,11 +3,12 @@ id: CONST-001
 kind: constitution
 title: Constitution — camada de governança computável
 parent: none
-version: 1.1.0
+version: 1.2.0
 status: in_review
 owners: [maintainers]
-last_updated: 2026-10-26
+last_updated: 2026-10-28
 status_history:
+  - { version: 1.2.0, status: in_review, date: 2026-10-28, note: "§2 preenchida pela primeira vez (ADR-002); bump minor no G2: aceite da mantenedora em 2026-10-28 nesta conversa ("Revisei e aceito o produto, a stack e os contratos nestas versões"); não é aprovação final da entrega" }
   - { version: 1.1.0, status: in_review, date: 2026-10-26, note: "evolução do template solicitada pelo mantenedor; contratos de tooling, design e evidência; stack segue pendente" }
   - { version: 1.0.0, status: approved, date: 2026-09-05, note: "adoção do método SDD (ADR-001); stack a definir no bootstrap" }
 ---
@@ -29,10 +30,10 @@ Tudo o que estiver aqui é regra; o linter, os hooks e o agente devem cobrá-las
 
 | Camada | Decisão | ADR |
 |---|---|---|
-| Linguagem/runtime | a definir no bootstrap | ADR-002 (pendente) |
-| Framework | a definir no bootstrap | ADR-002 (pendente) |
-| Persistência | a definir no bootstrap | ADR-002 (pendente) |
-| Testes / lint | a definir no bootstrap | ADR-002 (pendente) |
+| Linguagem/runtime | Python ≥ 3.10 (CI 3.12) | ADR-002 |
+| Framework | Flask 3.1 + Jinja2, renderização no servidor | ADR-002 |
+| Persistência | Arquivo JSON local versionado, somente leitura | ADR-002 |
+| Testes / lint | pytest 8 + beautifulsoup4; Playwright (e2e, comando separado) / ruff | ADR-002 |
 
 Preencher esta tabela pela primeira vez (ADR-002, no bootstrap) é bump `minor` da versão corrente, aprovado no gate G2. Trocar uma linha depois disso exige ADR-v2 (`supersedes`) e bump `major`.
 
@@ -78,6 +79,7 @@ com uma linha por regra apontando lint/fronteira/hook/ratchet — o lint rejeita
 entrega a semente DS-00 (arquitetura/fronteiras), DS-06 (testes) e DS-07 (nomes). Ver Regra 13 em AGENTS.md.
 
 ## Changelog
+- 1.2.0 (2026-10-28): §2 preenchida com a stack do catálogo (ADR-002, G2).
 - 1.1.0 (2026-10-26): design por estado, escopo do parsing explícito e tooling validado por snapshot; stack permanece em aberto.
 - 1.0.0 (2026-09-05): versão inicial (§1–§13 + §14 Design System).
 

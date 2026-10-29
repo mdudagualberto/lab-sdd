@@ -3,7 +3,7 @@ id: F-SDD-TOOLING-V1
 kind: feature_spec
 title: Base reutilizável de templates e governança
 parent: PROD-001
-version: 0.1.0
+version: 0.3.0
 status: in_review
 risk_tier: limited
 data_classification: public
@@ -12,10 +12,12 @@ slo: { deterministic_checks: true }
 deps: []
 related_adrs: [ADR-001]
 issue: none
-last_updated: 2026-10-26
+last_updated: 2026-10-28
 spec_hash: pending
 status_history:
   - { version: 0.1.0, status: in_review, date: 2026-10-26, note: "escopo solicitado pelo mantenedor: absorver melhorias do uso real, preservando produto e stack em aberto; não é aprovação final" }
+  - { version: 0.2.0, status: in_review, date: 2026-10-28, note: "AC-8 distingue PROD-001 antes e depois do bootstrap: o teste exigia “Produto a definir” sempre e falhava em qualquer repositório que iniciasse o bootstrap; autorizado pela mantenedora (Q-2 de F-SETUP-V1); não é aprovação final" }
+  - { version: 0.3.0, status: in_review, date: 2026-10-28, note: "AC-8 estende a regra à Constitution: a asserção fixa “a definir no bootstrap” falharia ao preencher a §2 no G2. Vale só para a §2, porque o status_history da Constitution guarda esse texto e histórico não se apaga; autorizado pela mantenedora; não é aprovação final" }
 ---
 
 # F-SDD-TOOLING-V1 — Ferramentas do próprio template
@@ -40,7 +42,7 @@ Shell portátil para os comandos; Python 3 (biblioteca padrão) para caminhos, J
 - **AC-5.** Stop emite exatamente um objeto JSON, bloqueia drift/iteração sem spec e evita repetição infinita; PostToolUse propaga falhas do índice. @test:scripts/tests/test_hooks.py
 - **AC-6.** Pre-commit confere snapshot do stage; trailer usa hash staged, inclusive amend; pre-push confere as revisões enviadas. @test:scripts/tests/test_tooling.py
 - **AC-7.** Templates incluem design independente de plataforma, tasks com evidência e handoff; lint aceita design e rejeita artefatos inválidos. @test:scripts/tests/test_tooling.py
-- **AC-8.** Documentação distingue práticas incorporadas, padrões opcionais e escolhas do produto; configuração não contém caminhos pessoais, plugins ou permissões de stacks não escolhidas. @test:scripts/tests/test_hooks.py
+- **AC-8.** Documentação distingue práticas incorporadas, padrões opcionais e escolhas do produto; configuração não contém caminhos pessoais, plugins ou permissões de stacks não escolhidas; com `bootstrap: pending` em PROD-001, o PROD-001 contém “Produto a definir” e a §2 da Constitution contém “a definir no bootstrap”; com `bootstrap: complete`, nenhum dos dois contém; outro valor de `bootstrap` falha. @test:scripts/tests/test_hooks.py
 
 ## Risks
 Ver risks.md: heurística de shell, adoção indevida de regras específicas e falsa confiança nos testes.

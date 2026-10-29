@@ -7,9 +7,45 @@
       "status": "accepted"
     },
     {
+      "id": "ADR-002",
+      "path": ".specs/adr/ADR-002-stack-python-flask.md",
+      "kind": "adr",
+      "status": "accepted"
+    },
+    {
       "id": "CONST-001",
       "path": ".specs/constitution/constitution.md",
       "kind": "constitution",
+      "status": "in_review"
+    },
+    {
+      "id": "DESIGN-F-CATALOGO-V1",
+      "path": ".specs/features/F-CATALOGO-V1/design.md",
+      "kind": "design",
+      "status": "in_review"
+    },
+    {
+      "id": "PLAN-F-CATALOGO-V1",
+      "path": ".specs/features/F-CATALOGO-V1/plan.md",
+      "kind": "plan",
+      "status": "in_review"
+    },
+    {
+      "id": "RISK-F-CATALOGO-V1",
+      "path": ".specs/features/F-CATALOGO-V1/risks.md",
+      "kind": "risks",
+      "status": "in_review"
+    },
+    {
+      "id": "F-CATALOGO-V1",
+      "path": ".specs/features/F-CATALOGO-V1/spec.md",
+      "kind": "feature_spec",
+      "status": "in_review"
+    },
+    {
+      "id": "TASKS-F-CATALOGO-V1",
+      "path": ".specs/features/F-CATALOGO-V1/tasks.md",
+      "kind": "tasks",
       "status": "in_review"
     },
     {
@@ -37,19 +73,60 @@
       "status": "in_review"
     },
     {
+      "id": "DESIGN-F-SETUP-V1",
+      "path": ".specs/features/F-SETUP-V1/design.md",
+      "kind": "design",
+      "status": "in_review"
+    },
+    {
+      "id": "PLAN-F-SETUP-V1",
+      "path": ".specs/features/F-SETUP-V1/plan.md",
+      "kind": "plan",
+      "status": "in_review"
+    },
+    {
+      "id": "RISK-F-SETUP-V1",
+      "path": ".specs/features/F-SETUP-V1/risks.md",
+      "kind": "risks",
+      "status": "in_review"
+    },
+    {
+      "id": "F-SETUP-V1",
+      "path": ".specs/features/F-SETUP-V1/spec.md",
+      "kind": "feature_spec",
+      "status": "in_review"
+    },
+    {
+      "id": "TASKS-F-SETUP-V1",
+      "path": ".specs/features/F-SETUP-V1/tasks.md",
+      "kind": "tasks",
+      "status": "in_review"
+    },
+    {
       "id": "PROD-001",
       "path": ".specs/product/product-spec.md",
       "kind": "product_spec",
-      "status": "draft"
+      "status": "in_review"
     }
   ],
   "hashes": {
     "ADR-001": "0634a899a99fa9b19687ca751a9dbba66fbdba12664463a1eddf7aeabebe4803",
-    "CONST-001": "dc0c322afe265f5a383779dffff19b6dcd60b169e7d2f1d890fd5c71fe1145fa",
+    "ADR-002": "ce67f95843c94e96cb5995cb2e6330e1f4a716fa158738407e92ce3e59a7b678",
+    "CONST-001": "74e82594bb11cefba02d80a625a3729aeb7aba4c3867d305b6c725dc13f667d8",
+    "DESIGN-F-CATALOGO-V1": "3d8f2aa8a004f07d8f7bd939fc791bdbad5ea54e9b6c4b3e7a467e41f028dc03",
+    "PLAN-F-CATALOGO-V1": "e6006e37b75466eed4808aa25e514dfd78d562ba81e97a9d66f8eac2b82770b4",
+    "RISK-F-CATALOGO-V1": "93ed7207bf7340bcffea213938ccac04344eb4ce9d2a9fa1ba854882da29081f",
+    "F-CATALOGO-V1": "93da365a9b52e16db225113eb56113dbeae39edde2dfd4e888387a803b347555",
+    "TASKS-F-CATALOGO-V1": "cb94435f79510b47db27d5d36530b751aca8d034f48f5fd3c4dd6360b9a3c706",
     "PLAN-F-SDD-TOOLING-V1": "9e18b952591bb058fac8a361ec5aa902cdc2492761c52e3f07e113e5f699540d",
     "RISK-F-SDD-TOOLING-V1": "b7ad3041d6656ddbf2c1347bf335b1e323eee2365fd43e9cff76f63a814c2ac9",
-    "F-SDD-TOOLING-V1": "63fed5ac9d2766b6cbaa4dabe7d20bb618629efbf5b24f1bee9ad75b39fdec79",
-    "TASKS-F-SDD-TOOLING-V1": "7bf8d690ecf4f9d66d7cb5c2372dd73438e861ac05296f61905a182c28119b9a",
-    "PROD-001": "64d66f6697ad9fae81cc0e9b84678a8555a558489da3f6d40e506a4b4ee8753f"
+    "F-SDD-TOOLING-V1": "6e26468118abcb5aed45236cfee4057c9594daf0067df2a080f7848879c665c1",
+    "TASKS-F-SDD-TOOLING-V1": "115a583283ff0e0f56829441c1e483eb52f09778a29fd8627f19f269279137e3",
+    "DESIGN-F-SETUP-V1": "d881ae961d1e380add791f9815fc34b3d22b00c963df8c53a00eab158ebbd53a",
+    "PLAN-F-SETUP-V1": "580504a57f4cf10b6f12ff7473fca99809b1af748f95c0cbc25561b1124082aa",
+    "RISK-F-SETUP-V1": "6bf886bd50ffec13a739eefc31b154bd3cffbc80489919dd446181fa2db803c0",
+    "F-SETUP-V1": "366200eba4e8016d3a1b48797807fc62f4b46fa1fc7652d00800e85b2ed2928a",
+    "TASKS-F-SETUP-V1": "aa9ef9bddea1e1a7b06d1a7f5fc663db337f542ece51d12059a98a2d297bef90",
+    "PROD-001": "32ccd6608612b4dceae45eef6cf6f38fae0e39168ebd1227a7abb10efc6d6eb7"
   }
 }
