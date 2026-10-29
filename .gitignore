@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.db
+.env
+CLAUDE.local.md
+.claude/settings.local.json
+.DS_Store
+.sdd/
+.claude/agent-memory-local/
+
+.env.*
+!.env.example
+*.pem
+.claude/worktrees/
+.claude/agent-memory/
