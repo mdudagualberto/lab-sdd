@@ -100,14 +100,14 @@ Não atualizei `docs/learned-practices.md`. A única prática reutilizável fora
 ## §6. Pendências (declare `nenhuma` explicitamente se for o caso)
 | Pendência | Tipo (prevent/mitigate/process) | Owner | Prazo | Tracking | Status |
 |---|---|---|---|---|---|
-| Resultado real da CI (jobs `check` e `product`), que depende de push | process | mdudagualberto | antes do aceite final | F-SETUP-V1 T-007 | aberto |
+| Resultado real da CI (jobs `check` e `product`), que depende de push | process | mdudagualberto | antes do aceite final | F-SETUP-V1 T-007 | feito em 2026-10-29: https://github.com/mdudagualberto/lab-sdd/actions/runs/40811044546 success |
 | Revisão humana do código e aceite final (`approved`) das specs | process | mdudagualberto | antes da entrega ao grupo | F-SETUP-V1 / F-CATALOGO-V1 status_history | aberto |
 | Escrever na spec que o ano é exibido com quatro dígitos (D-4/AC-1), numa revisão 0.1.2 | prevent | mdudagualberto (decide) | próxima rodada (intervalo de anos) | este PM §5 (a); F-CATALOGO-V1 v0.1.2 | feito em 2026-10-28 |
 | Verificação com leitor de tela real | mitigate | mdudagualberto | sem prazo; fora da V1 | F-CATALOGO-V1 T-009 | deferred |
 | Levar `make e2e` para a CI | prevent | mdudagualberto | quando o custo do Chromium na CI for aceito | F-CATALOGO-V1 risks R-5 | aberto |
 | Decidir o caso do `ano` repetido na URL e o texto da D-3 | process | mdudagualberto | opcional | este PM §5 (c) | aberto |
 | Propor ao template de origem a AC-8 que depende do bootstrap | process | mdudagualberto | opcional | F-SDD-TOOLING-V1 v0.3.0 | aberto |
-| Rodar o tooling em Python 3.9 (só há 3.12 localmente) | mitigate | CI (job `check`) | no primeiro push | ci.yml | aberto |
+| Rodar o tooling em Python 3.9 (só há 3.12 localmente) | mitigate | CI (job `check`) | no primeiro push | ci.yml | feito em 2026-10-29: job check em 3.9, Linux e macOS, success |
 
 ## §7. Evidências (paths reproduzíveis — confirme que existem antes de escrever)
 - Commits: df98191 (gates), 6ac3964 (F-SETUP-V1), 0e41e52 (F-CATALOGO-V1), 49a4403 (correções da revisão).
@@ -117,4 +117,5 @@ Não atualizei `docs/learned-practices.md`. A única prática reutilizável fora
 - `tests/e2e/test_teclado.py` (AC-8) e `tests/test_comandos.py` (AC-3 da F-SETUP).
 - `.specs/features/F-SDD-TOOLING-V1/spec.md` (AC-8 v0.3.0) e `scripts/tests/test_hooks.py`.
 - Revisão independente: relatório do subagente `spec-reviewer` nesta sessão, veredito APROVAR COM RESSALVAS. Não ficou persistido em arquivo; os achados estão resumidos em §3 e nas tasks T-009 (F-SETUP) e T-010 (F-CATALOGO).
-- Não executado: CI remota, Python 3.9, Firefox/Safari, teclado físico, leitor de tela.
+- CI remota em 227ea63: https://github.com/mdudagualberto/lab-sdd/actions/runs/40811044546 (success nos 3 jobs, inclusive Python 3.9 no Linux e no macOS).
+- Não executado: Firefox/Safari, teclado físico, leitor de tela.
