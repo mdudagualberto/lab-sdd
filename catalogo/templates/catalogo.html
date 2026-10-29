@@ -4,15 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo de artigos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
 </head>
 <body>
   <main>
     <h1>Catálogo de artigos</h1>
-    <ul>
-      {% for artigo in artigos %}
-      <li>{{ artigo.titulo }} · {{ artigo.autores | join(", ") }} · {{ artigo.ano }}</li>
-      {% endfor %}
-    </ul>
+    <form method="get" action="/" role="search">
+      <label for="ano">Ano de publicação</label>
+      <div class="linha">
+        <input id="ano" name="ano" type="text" inputmode="numeric" value="{{ digitado }}"
+          {%- if erro %} aria-invalid="true" autofocus aria-describedby="erro-ano ajuda-ano"
+          {%- else %} aria-describedby="ajuda-ano"{% endif %}>
+        <button type="submit">Filtrar</button>
+      </div>
+      <input type="hidden" name="aplicado" value="{{ aplicado }}">
+      <p id="ajuda-ano" class="ajuda">Quatro dígitos, por exemplo 2024. Deixe vazio para ver todos.</p>
+      {% if erro %}
+      <p id="erro-ano" class="erro" role="alert">Informe um ano com quatro dígitos</p>
+      {% endif %}
+    </form>
+    <p id="contador">Artigos exibidos: {{ artigos | length }}</p>
+    {% if artigos %}
+      <ul id="artigos">
+        {% for artigo in artigos %}
+        <li><span class="titulo">{{ artigo.titulo }}</span> <span class="autores">{{ artigo.autores | join(", ") }}</span> · <span class="ano">{{ artigo.ano }}</span></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+    <p id="vazio">Nenhum artigo encontrado</p>
+    {% endif %}
   </main>
 </body>
 </html>

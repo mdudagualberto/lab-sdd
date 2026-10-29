@@ -3,7 +3,7 @@ id: DESIGN-F-CATALOGO-V1
 kind: design
 title: Design — F-CATALOGO-V1
 parent: F-CATALOGO-V1
-version: 0.1.0
+version: 0.2.0
 status: in_review
 applicable: true
 last_updated: 2026-10-28
@@ -17,7 +17,7 @@ Contrato de implementação visual; não substitui a spec. Se não houver UI, us
 - Spec e versão: `.specs/features/F-CATALOGO-V1/spec.md` v0.1.0.
 - Referência visual: wireframe W-1 abaixo, versionado neste arquivo (v0.1.0). Não há Figma; o wireframe decide a disposição e o CSS mínimo decide o resto.
 - Superfícies e variantes: navegador desktop (1280×800) e largura de celular (375×800); tema claro; pt-BR. Tema escuro e outros idiomas: não aplicáveis na V1 (PROD-001 P-3).
-- Componentes existentes e implementação: nenhum ainda. Previstos: `catalogo/templates/catalogo.html` e `catalogo/static/estilo.css` (F-SETUP-V1 cria a página mínima).
+- Componentes existentes e implementação: `catalogo/templates/catalogo.html` (formulário, ajuda, erro, contador, lista, vazio) e `catalogo/static/estilo.css`.
 - Tokens e fonte canônica: sem biblioteca de tokens. Cores e espaçamentos ficam em variáveis CSS em `catalogo/static/estilo.css` (fonte única; sem geração).
 - Responsável pela revisão: mantenedora (mdudagualberto).
 
@@ -69,24 +69,24 @@ Uma linha por estado e variante relevante; incluir inicial, carregamento, sucess
 ## Lacunas
 - L-1: indicador de “filtro atual” (por exemplo “Filtrando por 2024”) não existe. Em E-5, o campo mostra “20245” enquanto a lista mostra 2024, o que pode confundir. Decisão proposta: fora da V1, porque o erro já explica a situação. Reavaliar na revisão de intervalo de anos.
 - L-2: anúncio do resultado por leitor de tela após filtro válido. Com recarga completa, não há região viva útil. Fora da V1; T-009 deferred.
-- L-3: contraste exato das cores não tem referência externa. Será medido nas capturas (meta WCAG AA 4,5:1 para texto) e registrado abaixo.
+- ~~L-3~~ (resolvida em 2026-10-28; lápide): contraste calculado pela fórmula WCAG a partir das variáveis de `catalogo/static/estilo.css`: texto 15,80:1; texto suave 6,39:1; erro 6,54:1; botão 6,67:1; borda do campo 3,04:1 e foco 6,67:1 (não texto, meta 3:1). Todos dentro da meta AA. Texto original: contraste exato das cores não tem referência externa. Será medido nas capturas (meta WCAG AA 4,5:1 para texto) e registrado abaixo.
 
 ## Conferência visual
 Build verde não prova aparência nem acessibilidade. Abra e inspecione cada captura; depois exercite interação, foco e tecnologia assistiva conforme as ACs. Separe “inspecionado em imagem” de “testado interativamente”.
 
 | Estado / variante | Build ou commit | Evidência persistente | Referência comparada | Resultado / revisor / data |
 |---|---|---|---|---|
-| E-1 desktop | pendente | docs/images/F-CATALOGO-V1-inicial-desktop.png | W-1 | pendente |
-| E-1 celular | pendente | docs/images/F-CATALOGO-V1-inicial-celular.png | W-1 | pendente |
-| E-2 desktop | pendente | docs/images/F-CATALOGO-V1-filtrado-desktop.png | W-1 | pendente |
-| E-2 celular | pendente | docs/images/F-CATALOGO-V1-filtrado-celular.png | W-1 | pendente |
-| E-3 desktop | pendente | docs/images/F-CATALOGO-V1-vazio-desktop.png | W-1 | pendente |
-| E-3 celular | pendente | docs/images/F-CATALOGO-V1-vazio-celular.png | W-1 | pendente |
-| E-4 desktop | pendente | docs/images/F-CATALOGO-V1-erro-desktop.png | W-1 | pendente |
-| E-4 celular | pendente | docs/images/F-CATALOGO-V1-erro-celular.png | W-1 | pendente |
-| E-5 desktop | pendente | docs/images/F-CATALOGO-V1-erro-filtrado-desktop.png | W-1 | pendente |
-| E-6 desktop | pendente | docs/images/F-CATALOGO-V1-recuperacao-desktop.png | W-1 | pendente |
-| Teclado (AC-8) | pendente | saída de `make e2e` registrada em tasks.md T-007 | — | testado interativamente: pendente |
+| E-1 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-inicial-desktop.png | W-1 | inspecionado em imagem: 8 itens, contador 8, sem erro; confere com W-1; agente, 2026-10-28; revisão humana pendente |
+| E-1 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-inicial-celular.png | W-1 | inspecionado em imagem: uma coluna, campo e botão na mesma linha, ajuda quebra em 2 linhas; confere; agente, 2026-10-28; revisão humana pendente |
+| E-2 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-filtrado-desktop.png | W-1 | inspecionado em imagem: campo “2024”, 3 itens de 2024, contador 3; confere; agente, 2026-10-28; revisão humana pendente |
+| E-2 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-filtrado-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
+| E-3 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-vazio-desktop.png | W-1 | inspecionado em imagem: “Nenhum artigo encontrado” em caixa tracejada, contador 0, sem lista; confere; agente, 2026-10-28; revisão humana pendente |
+| E-3 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-vazio-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
+| E-4 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-desktop.png | W-1 | inspecionado em imagem: “abc” mantido, borda de erro, anel de foco, “! Informe um ano com quatro dígitos”, 8 itens; confere; agente, 2026-10-28; revisão humana pendente |
+| E-4 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
+| E-5 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-filtrado-desktop.png | W-1 | inspecionado em imagem: “20245”, erro, continuam os 3 de 2024, contador 3; confere; agente, 2026-10-28; revisão humana pendente |
+| E-6 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-recuperacao-desktop.png | W-1 | inspecionado em imagem: de “abc” para “2023” com Enter; erro some, 2 itens, contador 2; confere; agente, 2026-10-28; revisão humana pendente |
+| Teclado (AC-8) | mesmo build | saída de `make e2e` registrada em tasks.md T-007 | — | testado interativamente no Chromium headless (Playwright): Tab campo → Filtrar, Enter aplica, foco no campo após erro; 3 passed; contraprova sem autofocus falha. Não testado em Firefox/Safari nem com teclado físico |
 | Leitor de tela | — | — | — | não verificado na V1 (T-009) |
 
 Não use caminhos temporários como única evidência. Não inclua dados pessoais nas capturas. A task fecha com evidência e revisão registrada, ou fica explicitamente pendente.

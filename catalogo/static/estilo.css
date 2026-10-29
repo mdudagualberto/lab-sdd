@@ -1,0 +1,80 @@
+/* Fonte única de cores e espaçamentos do catálogo (DESIGN-F-CATALOGO-V1, W-1). */
+:root {
+  --texto: #1f2328;
+  --texto-suave: #57606a;
+  --fundo: #ffffff;
+  --borda: #8c959f;
+  --divisor: #d0d7de;
+  --acao: #0b5cad;
+  --acao-texto: #ffffff;
+  --erro: #b3261e;
+  --foco: #0b5cad;
+  --espaco: 1rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: calc(var(--espaco) * 2) var(--espaco);
+}
+
+h1 { margin: 0 0 var(--espaco); font-size: 1.75rem; }
+
+label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+
+.linha { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+input[type="text"] {
+  font: inherit;
+  width: 12rem;
+  max-width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--borda);
+  border-radius: 0.375rem;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+input[aria-invalid="true"] { border: 2px solid var(--erro); }
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--acao);
+  border-radius: 0.375rem;
+  color: var(--acao-texto);
+  background: var(--acao);
+  cursor: pointer;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+
+.ajuda { margin: 0.25rem 0 0; color: var(--texto-suave); font-size: 0.875rem; }
+
+.erro { margin: 0.5rem 0 0; color: var(--erro); font-weight: 600; }
+.erro::before { content: "! " / ""; }
+
+#contador { margin: calc(var(--espaco) * 1.5) 0 0.5rem; font-weight: 600; }
+
+#artigos { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--divisor); }
+#artigos li { padding: 0.75rem 0; border-bottom: 1px solid var(--divisor); }
+#artigos .titulo { display: block; font-weight: 700; }
+#artigos .autores, #artigos .ano { color: var(--texto-suave); }
+
+#vazio { margin: 0.5rem 0 0; padding: var(--espaco); border: 1px dashed var(--borda); border-radius: 0.375rem; }
