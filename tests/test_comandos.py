@@ -3,15 +3,18 @@
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
 
 RAIZ = Path(__file__).resolve().parent.parent
-INTERNO = "CATALOGO_TESTE_INTERNO"
+# Só existe na cópia temporária; uma variável de ambiente poderia ser exportada
+# por engano e pular o controle em silêncio.
+MARCADOR = ".catalogo-teste-interno"
 
 pytestmark = pytest.mark.skipif(
-    os.environ.get(INTERNO) == "1",
+    (RAIZ / MARCADOR).exists(),
     reason="execução interna de make check; evita recursão (risco R-1)",
 )
 
@@ -26,14 +29,16 @@ def copia(tmp_path):
             ".venv", "__pycache__", ".pytest_cache", ".ruff_cache"
         ),
     )
+    (destino / MARCADOR).write_text("cópia de tests/test_comandos.py\n")
     return destino
 
 
 def make_check(copia):
     return subprocess.run(
-        ["make", "check", f"VENV={RAIZ / '.venv'}"],
+        # O mesmo ambiente que roda esta suíte, mesmo com make check VENV=...
+        ["make", "check", f"VENV={sys.prefix}"],
         cwd=copia,
-        env={**os.environ, INTERNO: "1"},
+        env=dict(os.environ),
         capture_output=True,
         text=True,
         timeout=600,

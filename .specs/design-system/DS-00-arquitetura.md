@@ -3,7 +3,7 @@ id: DS-00-arquitetura
 kind: design_system_spec
 title: Design System §0 — Arquitetura e fronteiras do catálogo
 parent: CONST-001
-version: 1.0.0
+version: 1.0.1
 status: in_review
 owners: [mdudagualberto]
 related_adrs: [ADR-002]
@@ -11,6 +11,7 @@ last_updated: 2026-10-28
 spec_hash: pending
 status_history:
   - { version: 1.0.0, status: in_review, date: 2026-10-28, note: "semente (F-SETUP-V1), descreve o esqueleto existente" }
+  - { version: 1.0.1, status: in_review, date: 2026-10-28, note: "linhas e escopo atualizados após F-CATALOGO-V1 (achados da revisão independente (spec-reviewer) de 2026-10-28)" }
 ---
 
 # Design System §0 — Arquitetura e fronteiras
@@ -18,7 +19,7 @@ status_history:
 > **Normativo** (AGENTS.md Regra 13). Snapshot do que o código JÁ faz; obrigatório dali em diante. Desvio exige ADR.
 
 ## Escopo
-Fronteiras dentro do pacote `catalogo/`: o domínio (`dados.py`, futuramente `filtro.py`) e a camada web (`web.py`, `__main__.py`, `templates/`). Fora do escopo: CSS e aparência (design.md) e o tooling SDD em `scripts/`.
+Fronteiras dentro do pacote `catalogo/`: o domínio (`dados.py` e `filtro.py`) e a camada web (`web.py`, `__main__.py`, `templates/`). Fora do escopo: CSS e aparência (design.md) e o tooling SDD em `scripts/`.
 
 ## Regras
 1. **R1 —** Só `catalogo/web.py` e `catalogo/__main__.py` importam `flask` ou `jinja2`; o restante do pacote é Python puro.
@@ -33,9 +34,9 @@ Fronteiras dentro do pacote `catalogo/`: o domínio (`dados.py`, futuramente `fi
 Regra sem linha nesta tabela é folclore — não a escreva.
 
 ## Exemplos canônicos
-- `catalogo/web.py:5` — `from flask import Flask, render_template`: o único ponto de entrada de Flask.
-- `catalogo/web.py:7` — a camada web importa o domínio (`from catalogo.dados import carregar_artigos`); o domínio nunca importa a web.
-- `catalogo/web.py:12` — `create_app(caminho_dados=None)`: factory que recebe o caminho dos dados, o que permite testar com fixture.
+- `catalogo/web.py:5` — `from flask import Flask, render_template, request`: o único ponto de entrada de Flask.
+- `catalogo/web.py:7-8` — a camada web importa o domínio (`carregar_artigos`, `filtrar`, `interpretar_entrada`); o domínio nunca importa a web.
+- `catalogo/web.py:13` — `create_app(caminho_dados=None)`: factory que recebe o caminho dos dados, o que permite testar com fixture.
 - `catalogo/dados.py:22` e `catalogo/dados.py:24` — `carregar_artigos` é o único `json.loads` do pacote.
 - `tests/test_arquitetura.py:7` — `CAMADA_WEB = {"web.py", "__main__.py"}`: a lista explícita da fronteira.
 
@@ -45,3 +46,4 @@ Regra sem linha nesta tabela é folclore — não a escreva.
 
 ## Changelog
 - 1.0.0 (2026-10-28): semente.
+- 1.0.1 (2026-10-28): exemplos `path:linha` e escopo atualizados depois da F-CATALOGO-V1 (`filtro.py` existe; `web.py` importa `request`).

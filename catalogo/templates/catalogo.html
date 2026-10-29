@@ -27,7 +27,7 @@
     {% if artigos %}
       <ul id="artigos">
         {% for artigo in artigos %}
-        <li><span class="titulo">{{ artigo.titulo }}</span> <span class="autores">{{ artigo.autores | join(", ") }}</span> · <span class="ano">{{ artigo.ano }}</span></li>
+        <li><span class="titulo">{{ artigo.titulo }}</span> <span class="autores">{{ artigo.autores | join(", ") }}</span> · <span class="ano">{{ "%04d" | format(artigo.ano) }}</span></li>
         {% endfor %}
       </ul>
     {% else %}

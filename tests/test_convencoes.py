@@ -29,3 +29,23 @@ def test_testes_nao_usam_dados_de_demonstracao():
         "DS-06 R2: testes usam tests/fixtures/artigos.json pela fixture app, "
         f"não os dados de demonstração; violações: {usam}"
     )
+
+
+def test_excecoes_do_dominio_usam_prefixo_erro():
+    import ast
+    import builtins
+
+    embutidas = {
+        nome
+        for nome, valor in vars(builtins).items()
+        if isinstance(valor, type) and issubclass(valor, BaseException)
+    }
+    fora = []
+    for arquivo in sorted((TESTES.parent / "catalogo").rglob("*.py")):
+        for no in ast.walk(ast.parse(arquivo.read_text(encoding="utf-8"))):
+            if not isinstance(no, ast.ClassDef) or no.name.startswith("Erro"):
+                continue
+            bases = {b.id for b in no.bases if isinstance(b, ast.Name)}
+            if bases & embutidas or any(b.startswith("Erro") for b in bases):
+                fora.append(f"{arquivo.name}:{no.name}")
+    assert not fora, f"DS-07 R1: exceções do domínio começam com Erro; fora: {fora}"

@@ -14,7 +14,7 @@ last_updated: 2026-10-28
 Contrato de implementação visual; não substitui a spec. Se não houver UI, use `applicable: false` e justifique em Referências; mantenha as demais seções com “não se aplica”.
 
 ## Referências
-- Spec e versão: `.specs/features/F-CATALOGO-V1/spec.md` v0.1.0.
+- Spec e versão: `.specs/features/F-CATALOGO-V1/spec.md` v0.1.1.
 - Referência visual: wireframe W-1 abaixo, versionado neste arquivo (v0.1.0). Não há Figma; o wireframe decide a disposição e o CSS mínimo decide o resto.
 - Superfícies e variantes: navegador desktop (1280×800) e largura de celular (375×800); tema claro; pt-BR. Tema escuro e outros idiomas: não aplicáveis na V1 (PROD-001 P-3).
 - Componentes existentes e implementação: `catalogo/templates/catalogo.html` (formulário, ajuda, erro, contador, lista, vazio) e `catalogo/static/estilo.css`.
@@ -76,16 +76,16 @@ Build verde não prova aparência nem acessibilidade. Abra e inspecione cada cap
 
 | Estado / variante | Build ou commit | Evidência persistente | Referência comparada | Resultado / revisor / data |
 |---|---|---|---|---|
-| E-1 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-inicial-desktop.png | W-1 | inspecionado em imagem: 8 itens, contador 8, sem erro; confere com W-1; agente, 2026-10-28; revisão humana pendente |
-| E-1 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-inicial-celular.png | W-1 | inspecionado em imagem: uma coluna, campo e botão na mesma linha, ajuda quebra em 2 linhas; confere; agente, 2026-10-28; revisão humana pendente |
-| E-2 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-filtrado-desktop.png | W-1 | inspecionado em imagem: campo “2024”, 3 itens de 2024, contador 3; confere; agente, 2026-10-28; revisão humana pendente |
-| E-2 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-filtrado-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
-| E-3 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-vazio-desktop.png | W-1 | inspecionado em imagem: “Nenhum artigo encontrado” em caixa tracejada, contador 0, sem lista; confere; agente, 2026-10-28; revisão humana pendente |
-| E-3 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-vazio-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
-| E-4 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-desktop.png | W-1 | inspecionado em imagem: “abc” mantido, borda de erro, anel de foco, “! Informe um ano com quatro dígitos”, 8 itens; confere; agente, 2026-10-28; revisão humana pendente |
-| E-4 celular | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; revisão humana pendente |
-| E-5 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-erro-filtrado-desktop.png | W-1 | inspecionado em imagem: “20245”, erro, continuam os 3 de 2024, contador 3; confere; agente, 2026-10-28; revisão humana pendente |
-| E-6 desktop | 6ac3964 + árvore da F-CATALOGO-V1 (commit seguinte; ver postmortem) | docs/images/F-CATALOGO-V1-recuperacao-desktop.png | W-1 | inspecionado em imagem: de “abc” para “2023” com Enter; erro some, 2 itens, contador 2; confere; agente, 2026-10-28; revisão humana pendente |
+| E-1 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-inicial-desktop.png | W-1 | inspecionado em imagem: 8 itens, contador 8, sem erro; confere com W-1; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-1 celular | 0e41e52 | docs/images/F-CATALOGO-V1-inicial-celular.png | W-1 | inspecionado em imagem: uma coluna, campo e botão na mesma linha, ajuda quebra em 2 linhas; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-2 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-filtrado-desktop.png | W-1 | inspecionado em imagem: campo “2024”, 3 itens de 2024, contador 3; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-2 celular | 0e41e52 | docs/images/F-CATALOGO-V1-filtrado-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-3 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-vazio-desktop.png | W-1 | inspecionado em imagem: “Nenhum artigo encontrado” em caixa tracejada, contador 0, sem lista; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-3 celular | 0e41e52 | docs/images/F-CATALOGO-V1-vazio-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-4 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-erro-desktop.png | W-1 | inspecionado em imagem: “abc” mantido, borda de erro, anel de foco, “! Informe um ano com quatro dígitos”, 8 itens; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-4 celular | 0e41e52 | docs/images/F-CATALOGO-V1-erro-celular.png | W-1 | inspecionado em imagem: idem em 375 px; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-5 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-erro-filtrado-desktop.png | W-1 | inspecionado em imagem: “20245”, erro, continuam os 3 de 2024, contador 3; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
+| E-6 desktop | 0e41e52 | docs/images/F-CATALOGO-V1-recuperacao-desktop.png | W-1 | inspecionado em imagem: de “abc” para “2023” com Enter; erro some, 2 itens, contador 2; confere; agente, 2026-10-28; aprovado pela mantenedora em 2026-10-28 |
 | Teclado (AC-8) | mesmo build | saída de `make e2e` registrada em tasks.md T-007 | — | testado interativamente no Chromium headless (Playwright): Tab campo → Filtrar, Enter aplica, foco no campo após erro; 3 passed; contraprova sem autofocus falha. Não testado em Firefox/Safari nem com teclado físico |
 | Leitor de tela | — | — | — | não verificado na V1 (T-009) |
 

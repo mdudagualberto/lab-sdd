@@ -3,7 +3,7 @@ id: DS-07-nomes
 kind: design_system_spec
 title: Design System §7 — Nomes no catálogo
 parent: CONST-001
-version: 1.0.0
+version: 1.1.0
 status: in_review
 owners: [mdudagualberto]
 related_adrs: [ADR-002]
@@ -11,6 +11,7 @@ last_updated: 2026-10-28
 spec_hash: pending
 status_history:
   - { version: 1.0.0, status: in_review, date: 2026-10-28, note: "semente (F-SETUP-V1), descreve o esqueleto existente" }
+  - { version: 1.1.0, status: in_review, date: 2026-10-28, note: "R1 ganha ratchet para o prefixo Erro, que estava sem enforcement (achados da revisão independente (spec-reviewer) de 2026-10-28)" }
 ---
 
 # Design System §7 — Nomes
@@ -28,7 +29,7 @@ Nomes de módulos, funções, classes e arquivos de teste do produto, e mensagen
 ## Enforcement
 | Regra | Como é cobrada | Onde |
 |---|---|---|
-| R1 | ruff `N` (pep8-naming), com N818 desligado e justificado | `pyproject.toml:12-14` |
+| R1 | ruff `N` (pep8-naming) para snake_case/PascalCase, com N818 desligado e justificado; ratchet com `ast` para o prefixo `Erro` (contraprova: `class DadosError(ValueError)`) | `pyproject.toml:12-14`, `tests/test_convencoes.py::test_excecoes_do_dominio_usam_prefixo_erro` |
 | R2 | Ratchet sobre `tests/` (contraprova: `tests/ajuda_extra.py`) | `tests/test_convencoes.py::test_arquivos_de_teste_seguem_test_prefixo` |
 | R3 | Hook Git commit-msg do template | `scripts/sdd/git-commit-msg.sh` |
 
@@ -44,3 +45,4 @@ Regra sem linha nesta tabela é folclore — não a escreva.
 
 ## Changelog
 - 1.0.0 (2026-10-28): semente.
+- 1.1.0 (2026-10-28): enforcement do prefixo `Erro` (antes só documentado; a revisão mostrou que `DadosError` passava no ruff).

@@ -44,6 +44,9 @@ def test_json_malformado(tmp_path):
         ({"ano": "２０２４"}, "ano"),
         ({"ano": "٢٠٢٤"}, "ano"),
         ({"ano": 2024}, "ano"),
+        ({"ano": "2024\n"}, "ano"),
+        ({"ano": " 2024"}, "ano"),
+        ({"ano": "2024 "}, "ano"),
     ],
 )
 def test_registro_invalido_cita_indice_e_campo(tmp_path, alteracao, campo):

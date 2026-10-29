@@ -65,3 +65,18 @@ def test_ac6_proxima_aplicacao_valida_remove_o_erro(abrir, esperado, ano, titulo
 
     assert depois.erro is None
     assert depois.titulos == esperado(titulos_de)
+
+
+def test_d12_titulo_e_autores_dos_dados_aparecem_escapados(tmp_path):
+    import json
+
+    from catalogo.web import create_app
+
+    caminho = tmp_path / "artigos.json"
+    registro = {"titulo": "<b>x</b> & y", "autores": ["<i>A</i>"], "ano": "2024"}
+    caminho.write_text(json.dumps([registro]), encoding="utf-8")
+    html = create_app(caminho).test_client().get("/").data.decode()
+
+    assert "<b>x</b>" not in html and "<i>A</i>" not in html
+    assert "&lt;b&gt;x&lt;/b&gt; &amp; y" in html
+    assert "&lt;i&gt;A&lt;/i&gt;" in html
