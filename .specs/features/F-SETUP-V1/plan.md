@@ -34,6 +34,7 @@ Pré-condições: G2 aceito para a ADR-002 (com a Constitution §2 preenchida no
 | `CLAUDE.md` / `README.md` | Linha com os comandos do produto |
 
 ## Passos (ordem; marque ✅ ao concluir)
+Passos 1–6 e 8 ✅ em 2026-10-28 (evidência em tasks.md). Passo 7: CI escrita, resultado remoto pendente de push. Passo 9: em andamento. Desvio do plano: `check-template` preserva o check original e é o que o job do template na CI roda (Python 3.9), porque o `check` completo exige o `.venv` do produto.
 1. `requirements*.txt`, `pyproject.toml`, alvo `app-setup`; rodar `make app-setup` (rede, PyPI) e registrar as versões instaladas.
 2. AC-1: `tests/test_smoke.py` vermelho (ImportError de `catalogo.web`) → `create_app` + template → verde.
 3. AC-2: `tests/test_dados.py` com casos válido (`"2024"` vira `2024`), JSON malformado, campo ausente, autores vazio, ano `"24"`, `"20245"`, `"２０２４"` (dígitos de largura total) e inteiro JSON `2024` → vermelho → `dados.py` → verde.

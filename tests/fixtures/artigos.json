@@ -1,0 +1,10 @@
+[
+  {"titulo": "Redes de citação em grupos pequenos", "autores": ["Ana Fictícia", "Bruno Exemplo"], "ano": "2024"},
+  {"titulo": "Leitura dirigida & revisão por pares", "autores": ["Carla Inventada"], "ano": "2023"},
+  {"titulo": "Especificação como contrato", "autores": ["Davi Modelo", "Elisa Teste"], "ano": "2024"},
+  {"titulo": "Métricas de reprodutibilidade", "autores": ["Fábio Amostra"], "ano": "2022"},
+  {"titulo": "Um estudo sobre anotações", "autores": ["Gabriela Hipótese"], "ano": "2021"},
+  {"titulo": "Ensaios sobre leitura lenta", "autores": ["Heitor Placeholder", "Íris Fixture"], "ano": "2023"},
+  {"titulo": "Catálogos locais para estudo", "autores": ["Júlia Simulada"], "ano": "2025"},
+  {"titulo": "Testes antes do código", "autores": ["Kauã Fictício"], "ano": "2024"}
+]

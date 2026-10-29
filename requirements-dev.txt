@@ -1,0 +1,14 @@
+# Testes, lint e e2e (ADR-002). Versões exatas, incluindo transitivas.
+-r requirements.txt
+pytest==8.4.2
+iniconfig==2.3.1
+packaging==26.3
+pluggy==1.7.0
+Pygments==2.21.0
+beautifulsoup4==4.15.0
+soupsieve==3.0.4
+typing_extensions==4.16.0
+playwright==1.64.1
+greenlet==3.5.6
+pyee==14.0.0
+ruff==0.17.3

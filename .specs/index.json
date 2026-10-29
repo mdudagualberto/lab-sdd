@@ -19,6 +19,24 @@
       "status": "in_review"
     },
     {
+      "id": "DS-00-arquitetura",
+      "path": ".specs/design-system/DS-00-arquitetura.md",
+      "kind": "design_system_spec",
+      "status": "in_review"
+    },
+    {
+      "id": "DS-06-testes",
+      "path": ".specs/design-system/DS-06-testes.md",
+      "kind": "design_system_spec",
+      "status": "in_review"
+    },
+    {
+      "id": "DS-07-nomes",
+      "path": ".specs/design-system/DS-07-nomes.md",
+      "kind": "design_system_spec",
+      "status": "in_review"
+    },
+    {
       "id": "DESIGN-F-CATALOGO-V1",
       "path": ".specs/features/F-CATALOGO-V1/design.md",
       "kind": "design",
@@ -113,6 +131,9 @@
     "ADR-001": "0634a899a99fa9b19687ca751a9dbba66fbdba12664463a1eddf7aeabebe4803",
     "ADR-002": "ce67f95843c94e96cb5995cb2e6330e1f4a716fa158738407e92ce3e59a7b678",
     "CONST-001": "74e82594bb11cefba02d80a625a3729aeb7aba4c3867d305b6c725dc13f667d8",
+    "DS-00-arquitetura": "4846599e5dd8396660e5b5012c2b7daea216803cdbf638405a6944b288b6199f",
+    "DS-06-testes": "587c23b824f1bfc10e13e333ab5aa08c6a95ba8db8353993b024d1a84214c5d2",
+    "DS-07-nomes": "832504498bf918f59b9274d8c4f0ac1ebfb36463df65ccd9c5d074923ebfd184",
     "DESIGN-F-CATALOGO-V1": "3d8f2aa8a004f07d8f7bd939fc791bdbad5ea54e9b6c4b3e7a467e41f028dc03",
     "PLAN-F-CATALOGO-V1": "e6006e37b75466eed4808aa25e514dfd78d562ba81e97a9d66f8eac2b82770b4",
     "RISK-F-CATALOGO-V1": "93ed7207bf7340bcffea213938ccac04344eb4ce9d2a9fa1ba854882da29081f",
@@ -123,10 +144,10 @@
     "F-SDD-TOOLING-V1": "6e26468118abcb5aed45236cfee4057c9594daf0067df2a080f7848879c665c1",
     "TASKS-F-SDD-TOOLING-V1": "115a583283ff0e0f56829441c1e483eb52f09778a29fd8627f19f269279137e3",
     "DESIGN-F-SETUP-V1": "d881ae961d1e380add791f9815fc34b3d22b00c963df8c53a00eab158ebbd53a",
-    "PLAN-F-SETUP-V1": "580504a57f4cf10b6f12ff7473fca99809b1af748f95c0cbc25561b1124082aa",
+    "PLAN-F-SETUP-V1": "2b829f996867b1df4347e7e8cf32b5a352ebe8f3ddf4438110839ad8fb8f42b3",
     "RISK-F-SETUP-V1": "6bf886bd50ffec13a739eefc31b154bd3cffbc80489919dd446181fa2db803c0",
     "F-SETUP-V1": "366200eba4e8016d3a1b48797807fc62f4b46fa1fc7652d00800e85b2ed2928a",
-    "TASKS-F-SETUP-V1": "aa9ef9bddea1e1a7b06d1a7f5fc663db337f542ece51d12059a98a2d297bef90",
+    "TASKS-F-SETUP-V1": "d6845ced045db85c0db919ce852b79641f345cc4ff19b1fbd2d102448452c715",
     "PROD-001": "32ccd6608612b4dceae45eef6cf6f38fae0e39168ebd1227a7abb10efc6d6eb7"
   }
 }
